@@ -1,0 +1,12 @@
+img {
+    height: 150px;
+    width: 150px;
+}
+
+.monster-card:hover {
+    border: 2px solid black;
+}
+
+p {
+    margin: 0 auto;
+}
