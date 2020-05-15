@@ -1,0 +1,20 @@
+#battle-logo {
+    text-align: center;
+}
+
+.opponent-col {
+    text-align: right;
+}
+
+.battle-img {
+    height: 300px;
+    width: 300px;
+}
+
+#monster-health {
+    text-align: left;
+}
+
+#opponent-health {
+    text-align: right;
+}

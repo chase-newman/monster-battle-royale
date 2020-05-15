@@ -1,10 +1,8 @@
 import React from 'react';
 import Monster from './Monster/Monster';
+import './MonsterList.css'
 
 const monsterList = (props) => {
-    
-    console.log(props);
-    
     let monsters = props.monsters.map(monster => {
         return <Monster 
                     monster={monster} 
@@ -12,8 +10,15 @@ const monsterList = (props) => {
                     parentCallback={props.parentCallback}/>
     })
     return (
-        <div className="row">
-            {monsters}
+        <div>
+            <div className="row justify-content-center">
+                <div className="col col-sm-8">
+                    <h1 id="choose-monster-title">Choose Your Monster</h1>
+                </div>
+            </div>
+            <div className="row">
+                {monsters}
+            </div>
         </div>
     );
 }

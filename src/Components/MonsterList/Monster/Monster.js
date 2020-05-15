@@ -13,7 +13,7 @@ const monster = (props) => {
     
     let sendData = () => {
         console.log(props.monster);
-        props.parentCallback(props.monster)
+        props.parentCallback(props.monster, attack, defense)
     }
     return (
 
