@@ -10,10 +10,14 @@ const monster = (props) => {
     if(defense === 0) {
         defense = Math.floor(Math.random() * 10); 
     }
+    let block = Math.floor(Math.random() * 10);
+    if(block === 0) {
+        block = Math.floor(Math.random() * 10);
+    }
     
     let sendData = () => {
         console.log(props.monster);
-        props.parentCallback(props.monster, attack, defense)
+        props.parentCallback(props.monster, attack, defense, block)
     }
     return (
 
@@ -22,6 +26,7 @@ const monster = (props) => {
             <img src={`https://robohash.org/${props.monster}?set=set2`} alt="monster" />
             <p>Attack: {attack}</p>
             <p>Defense: {defense}</p>
+            <p>Block: {block}</p>
         </div>
     );
 }

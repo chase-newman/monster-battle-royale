@@ -8,6 +8,7 @@ const selectedMonster = (props) => {
             <img src={`https://robohash.org/${props.monster}?set=set2`} alt="monster" />
             <p>Attack: {props.attack}</p>
             <p>Defense: {props.defense}</p>
+            <p>Block: {props.block}</p>
         </div>
     );
 }

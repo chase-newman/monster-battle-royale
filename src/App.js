@@ -11,17 +11,19 @@ class App extends Component {
     selectedMonster: {
       monsterNum: null,
       attack: 0,
-      defense: 0
+      defense: 0,
+      block: 0
     },
     battleReady: false
   }
   
-  callbackFunction = (monsterNum, attack, defense) => {
+  callbackFunction = (monsterNum, attack, defense, block) => {
     this.setState({
       selectedMonster: {
         monsterNum,
         attack,
-        defense
+        defense,
+        block
       }
     })
   }
@@ -41,7 +43,8 @@ class App extends Component {
             <SelectedMonster 
               monster={this.state.selectedMonster.monsterNum}
               attack={this.state.selectedMonster.attack} 
-              defense={this.state.selectedMonster.defense}/>
+              defense={this.state.selectedMonster.defense}
+              block={this.state.selectedMonster.block}/>
             <div className="row">
               <div className="col col-sm-6">
                 <button 
@@ -57,7 +60,8 @@ class App extends Component {
           </div>: <BattleStage 
                     monsterNumOne={this.state.selectedMonster.monsterNum}
                     attack={this.state.selectedMonster.attack}
-                    defense={this.state.selectedMonster.defense}/>}
+                    defense={this.state.selectedMonster.defense}
+                    block={this.state.selectedMonster.block}/>}
       </div>
     );    
   }
