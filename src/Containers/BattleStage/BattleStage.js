@@ -26,22 +26,51 @@ class BattleStage extends Component {
                 health: 100,
                 attack: attack,
                 defense: defense
-            } 
+            },
+            userTurn: true,
+            opponentTurn: false,
+            attackConfirmed: false
+        }
+    }
+ 
+    
+    attack = () => {
+        if(this.state.userTurn) {
+            this.setState(prevState => {
+                return ({
+                    ...this.state,
+                    opponentMonster: {
+                        ...this.state.opponentMonster,
+                        health: prevState.opponentMonster.health - this.state.selectedMonster.attack
+                    },
+                    userTurn: false,
+                    opponentTurn: true,
+                    attackConfirmed: true
+                });
+            }, () => {
+            setTimeout(() => {
+            this.setState(prevState => {
+                return ({
+                    ...this.state,
+                    selectedMonster: {
+                        monsterNum: this.props.monsterNumOne,
+                        health: prevState.selectedMonster.health - this.state.opponentMonster.attack,
+                        attack: this.props.attack,
+                        defense: this.props.defense                        
+                    },
+                    userTurn: true,
+                    opponentTurn: false
+                    })  
+                });  
+            }, 2000)
+            });            
         }
     }
     
-    attack = () => {
-        this.setState(prevState => {
-            return ({
-                opponentMonster: {
-                    ...this.state.opponentMonster,
-                    health: prevState.opponentMonster.health - this.state.selectedMonster.attack
-                }     
-            });
-        });
-    }
+    
     
     render() {
+        
         return(
             <div>
                 <div className="row justify-content-center">
